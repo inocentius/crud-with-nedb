@@ -15,7 +15,7 @@ app.get('/', (req, res)=> {
 app.get('/students', (req,res)=>{
   db.find({}, (err, data)=>{
     if (err) {
-      res.send(err);
+      res.send('Error, please review your code');
     } else {
       res.json(data);
     }
@@ -25,7 +25,7 @@ app.get('/students', (req,res)=>{
 app.get('/students/:id', (req,res)=>{
   db.findOne({_id: req.params.id}, (err, data)=>{
     if (err) {
-      res.send(err);
+      res.send('Error, please review your code');
     } else {
       res.json(data);
     }
@@ -48,7 +48,7 @@ app.post('/students', (req, res)=>{
 app.put('/students/:id', (req, res)=>{
   db.update({_id: req.params.id}, req.body, {}, (err, data)=>{
     if (err) {
-      res.send(err);
+      res.send('Error, please review your code');
     } else {
       res.send('Student data updated');
     }
@@ -59,7 +59,7 @@ app.put('/students/:id', (req, res)=>{
 app.delete('/students/:id', (req, res) =>{
   db.remove({_id:req.params.id}, {}, err=>{
     if (err) {
-      res.send(err);
+      res.send('Error, please review your code');
     } else {
       res.send('Student data deleted');
     }
